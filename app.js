@@ -43,7 +43,7 @@ const promptUser = () =>
       })
 } 
 
-// -------------------------------------------Manager----------------------------------------------------
+
 const  manager = () => 
     inquirer.prompt([
         {
@@ -75,7 +75,7 @@ const  manager = () =>
      promptUser()
     })
 
-// -------------------------------------------Engineer----------------------------------------------------
+
 const engineer = () =>
     inquirer.prompt([
         {
@@ -104,7 +104,6 @@ const engineer = () =>
         promptUser()
        })
 
-// -------------------------------------------Intern----------------------------------------------------
     const intern = () =>
     inquirer.prompt([
         {
@@ -134,14 +133,25 @@ const engineer = () =>
        })
 
     
-// Initiates program
+
 promptUser()
 
-// Writes the HTML Created to the out put folder with file name team.html
+
+// Writes the HTML Created to the output folder with file name team.html
+// After the user has input all employees desired, call the `render` function (required
+// above) and pass in an array containing all employee objects; the `render` function will
+// generate and return a block of HTML including templated divs for each employee!
 function createFinalTeam() {
     fs.writeFileSync(outputPath, render(employees))
+    // render function comes from htmlRenderer
+    //employees = array of all employee objects
+    // calling render(employees), the writing that info to outputPath 
+    // outputPath = 
     console.log('Successfully wrote to team.html and placed it in the output folder!')
 }
+
+// const OUTPUT_DIR = path.resolve(__dirname, "output");
+// const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 
 // After the user has input all employees desired, call the `render` function (required
