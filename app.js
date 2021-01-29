@@ -28,13 +28,13 @@ const promptUser = () =>
             type: 'list',
             message: 'Employee Type?',
             name: 'type',
-            choices: ['Manager', 'Engineer', 'Intern', 'Complete Team'],
+            choices: ['Manager', 'Engineer', 'Intern', 'Finished'],
         },
     ]).then((answers) => {
         console.log(answers)
-        if (answers.type == 'Complete Team') {
+        if (answers.type == 'Finished') {
             // If Team is complete, call function to build team and write HTML file
-            createFinalTeam()
+            makeTeam()
             
         }else if (answers.type == 'Engineer') {
             engineer()
@@ -144,7 +144,7 @@ promptUser()
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
-function createFinalTeam() {
+function makeTeam() {
     fs.writeFileSync(outputPath, render(employees))
     // render function comes from htmlRenderer - 
     //employees = array of all employee objects
