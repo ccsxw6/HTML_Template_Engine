@@ -7,10 +7,13 @@ const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
 
-// NOT SURE WHAT THESE TWO THINGS ARE FOR
+// GIVING PATHS TO SEND DATA TO? 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
+// C:\Users\cstanfi2\Downloads\Bootcamp\template\HTML_Template_Engine\output
 const outputPath = path.join(OUTPUT_DIR, "team.html");
+// C:\Users\cstanfi2\Downloads\Bootcamp\template\HTML_Template_Engine\output\team.html
 
+// allowing use of htmlRenderer
 const render = require("./lib/htmlRenderer");
 
 // Array to hold employee objects
@@ -143,20 +146,17 @@ promptUser()
 // generate and return a block of HTML including templated divs for each employee!
 function createFinalTeam() {
     fs.writeFileSync(outputPath, render(employees))
-    // render function comes from htmlRenderer
+    // render function comes from htmlRenderer - 
     //employees = array of all employee objects
-    // calling render(employees), the writing that info to outputPath 
-    // outputPath = 
+    // calling render(employees), then taking that data and writing it to outputPath
+    // outputPath = C:\Users\cstanfi2\Downloads\Bootcamp\template\HTML_Template_Engine\output\team.html
+    // SO it's sending that information to the above path
+    // console.log(employees)
     console.log('Successfully wrote to team.html and placed it in the output folder!')
 }
 
-// const OUTPUT_DIR = path.resolve(__dirname, "output");
-// const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 
-// After the user has input all employees desired, call the `render` function (required
-// above) and pass in an array containing all employee objects; the `render` function will
-// generate and return a block of HTML including templated divs for each employee!
 
 // After you have your html, you're now ready to create an HTML file using the HTML
 // returned from the `render` function. Now write it to a file named `team.html` in the
